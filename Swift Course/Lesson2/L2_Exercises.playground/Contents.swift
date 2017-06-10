@@ -9,12 +9,20 @@ import UIKit
 var moviesDict:Dictionary = [ "Star Wars":"George Lucas", "Point Break":"Kathryn Bigelow"]
 var movie = "Point Break"
 var director = moviesDict[movie]
+//movie = "Not a Movie"
+//movie = "Star wars"
+//movie = "Hey"
 
 //: 1b) Test your code by inserting different values for the variable `movie`.
-
+if let movieAuthor = moviesDict[movie]{
+    print(movie)
+}else{
+    print("Esta pelicula no existe")
+}
 //: ### Exercise 2
 //: The LoginViewController class below needs a UITextField to hold a user's name. Declare a variable for this text field as a property of the class LoginViewController. Keep in mind that the textfield property will not be initialized until after the view controller is constructed.
 class LoginViewController: UIViewController {
+    var Username : String?
 }
 
 //: ### Exercise 3
@@ -24,7 +32,11 @@ class LoginViewController: UIViewController {
 var numericalString = "3"
 var number = Int(numericalString)
 //TODO: Unwrap number to make the following print statement more readable.
-print("\(number) is the magic number.")
+if let number = number{
+    print("\(number) is the magic number.")
+}else{
+    print("this is not a magic number")
+}
 //: 3b) Change the value of numericalString to "three" and execute the playground again.
 
 //: ### Exercise 4
