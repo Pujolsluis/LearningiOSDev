@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
 //: The Swift Int type has an initializer that takes a string as a parameter and returns an optional of type Int?.
 //:
 //: 3a) Finish the code below by safely unwrapping the constant, `number`.
-var numericalString = "3"
+var numericalString = "three"
 var number = Int(numericalString)
 //TODO: Unwrap number to make the following print statement more readable.
 if let number = number{
@@ -42,11 +42,11 @@ if let number = number{
 //: ### Exercise 4
 //: The class UIViewController has a property called tabBarController.  The tabBarController property is an optional of type UITabBarController?. The tabBarController itself holds a tabBar as a property. Complete the code below by filling in the appropriate use of optional chaining to access the tab bar property.
 var viewController = UIViewController()
-//if let tabBar = //TODO: Optional chaining here {
-//    print("Here's the tab bar.")
-//} else {
-//    print("No tab bar controller found.")
-//}
+if let tabBar = viewController.tabBarController?.tabBar {
+    print("Here's the tab bar.")
+} else {
+    print("No tab bar controller found.")
+}
 //: ### Exercise 5
 //: Below is a dictionary of paintings and artists.
 //:
@@ -57,14 +57,26 @@ var painting = "Mona Lisa"
 var artist = paintingDict[painting]
 
 //: 5b) Test your code by inserting different values for the variable `painting`.
-
+painting = "Bella"
+painting = "Guernica"
+if let artist = paintingDict[painting]{
+    print(artist)
+}else{
+    print("This artist doesn't exist")
+}
 //: ### Exercise 6
 //: Set the width of the cancel button below.  Notice that the cancelButton variable is declared as an implicitly unwrapped optional.
 var anotherViewController = UIViewController()
 var cancelButton: UIBarButtonItem!
 cancelButton = UIBarButtonItem()
 // TODO: Set the width of the cancel button.
+cancelButton.width = 20
 //: ### Exercise 7
 //: The class UIViewController has a property called parentViewController.  The parentViewController property is an optional of type UIViewController?. We can't always be sure that a given view controller has a parentViewController.  Safely unwrap the parentViewController property below using if let.
 var childViewController = UIViewController()
 // TODO: Safely unwrap childViewController.parentViewController
+if let childViewParent = childViewController.parent{
+    childViewParent
+}else{
+    print("There is no parentViewController")
+}
